@@ -26,6 +26,7 @@
 
 volatile bool botaoA_press = false;
 volatile bool botaoJ_press = false;
+volatile bool estado_pwm = true;
 ssd1306_t ssd;
 bool cor = true;
 uint16_t adc_value_x, adc_value_y;
@@ -48,8 +49,8 @@ int main()
         adc_select_input(1);
         adc_value_y = adc_read();
         printf("Y: %d\n", adc_value_y);
-
-        if (adc_value_x > 1900 && adc_value_x < 2100 && adc_value_y > 1700 && adc_value_y < 2000) {
+        if(estado_pwm){
+        if (adc_value_x > 1800 && adc_value_x < 2200 && adc_value_y > 1600 && adc_value_y < 2000) {
             // Desliga os LEDs se o joystick estiver centralizado
             pwm_set_gpio_level(pin_red, 0);
             pwm_set_gpio_level(pin_blue, 0);
@@ -59,6 +60,7 @@ int main()
             uint16_t pwm_value_y = abs(adc_value_y - 2048) * 2;  
             pwm_set_gpio_level(pin_red, pwm_value_x);
             pwm_set_gpio_level(pin_blue, pwm_value_y);
+        }
         }
         
         sleep_ms(10);
@@ -110,7 +112,8 @@ void button_isr(uint gpio, uint32_t events){
 
     if(absolute_time_diff_us(last_press, now) > 200000){
         if(!gpio_get(botaoA)){
-            botaoA_press = true;
+            botaoA_press = !botaoA_press;
+            estado_pwm = !estado_pwm;
         }else{
             if(!gpio_get(botaoJ)){
                 botaoJ_press = true;
