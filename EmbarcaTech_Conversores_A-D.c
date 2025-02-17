@@ -58,6 +58,8 @@ int main()
             // Ajusta o brilho dos LEDs com base nos valores do joystick
             uint16_t pwm_value_x = abs(adc_value_x - 2048) * 2;
             uint16_t pwm_value_y = abs(adc_value_y - 2048) * 2;  
+            if (pwm_value_x > 4095) pwm_value_x = 4095;
+            if (pwm_value_y > 4095) pwm_value_y = 4095;
             pwm_set_gpio_level(pin_red, pwm_value_x);
             pwm_set_gpio_level(pin_blue, pwm_value_y);
         }
