@@ -4,9 +4,9 @@ Tarefa do EmbarcaTech com o objetivo de consolidar os conceitos sobre o uso de c
 # Vídeo Explicativo
 A seguir um vídeo explicativo sobre o projeto.
 
-"link"
+https://drive.google.com/file/d/1f0EV4ZzJ1osWE2vsaw7gVMYLdPwtBMrl/view?usp=sharing
 
-# Intruções
+# Instruções
 Para executar o código em questão, deve-se possuir acesso a placa BitDogLab. 
 
 **Funcionalidades**
