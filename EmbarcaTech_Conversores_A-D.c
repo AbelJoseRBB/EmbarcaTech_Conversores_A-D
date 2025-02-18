@@ -75,6 +75,7 @@ int main(){
             posX = (adc_value_x * (maxX-minX) / 4095) + minX;   // Mapeia o movimento horizontal do joystick
             posY = maxY - ((adc_value_y * (maxY- minY)) / 4095);   // Mapeia o movimento vertical do joystick
         }
+        
         desenhar_borda(cont);   // Seleciona a borda 
         ssd1306_rect(&ssd, posY, posX, 8, 8, cor, cor); // Move o quadrado de 8x8 no display
         ssd1306_send_data(&ssd);    // Atualiza o display
