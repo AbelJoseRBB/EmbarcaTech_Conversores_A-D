@@ -46,6 +46,7 @@ pico_enable_stdio_usb(EmbarcaTech_Conversores_A-D 1)
 
 # Add the standard library to the build
 target_link_libraries(EmbarcaTech_Conversores_A-D
+        pico_bootrom
         hardware_pwm
         hardware_adc
         hardware_i2c

@@ -1,4 +1,0 @@
-[wokwi]
-version = 1 
-firmware = "build/EmbarcaTech_Conversores_A-D.uf2"
-elf = "build/EmbarcaTech_Conversores_A-D.elf"
